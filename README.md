@@ -34,6 +34,18 @@ created.id # => 2
 created.name # => "name"
 ```
 
+You can use this feature as cache.
+For example, when you have redis instance
+```crystal
+
+redis = Redis.new
+redis.set("user_1", user.to_json)
+
+...
+
+user = User.from_json(redis.get("user_1"))
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/tbrand/db_model/fork )
