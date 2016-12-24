@@ -1,6 +1,6 @@
 # db_model
 
-TODO: Write a description here
+Light model for mapping data from databases  
 
 ## Installation
 
@@ -9,24 +9,27 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   db_model:
-    github: [your-github-name]/db_model
+    github: tbrand/db_model
 ```
 
 ## Usage
 
 ```crystal
 require "db_model"
+
+# define mapped model
+db_model User, id : Int32, account_name : String, passhash : String
+
+# open db as usual
+db = DB.open("some uri") # typeof(db) is DB::Database
+
+# get array of users by arbitary queries
+users = User.query(db, "select * from users") # Array(User)
 ```
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
 
 ## Contributing
 
-1. Fork it ( https://github.com/[your-github-name]/db_model/fork )
+1. Fork it ( https://github.com/tbrand/db_model/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -34,4 +37,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) taicsuzu - creator, maintainer
+- [tbrand](https://github.com/tbrand) Taichiro Suzuki - creator, maintainer
