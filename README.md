@@ -25,6 +25,13 @@ db = DB.open("some uri") # typeof(db) is DB::Database
 
 # get array of users by arbitary queries
 users = User.query(db, "select * from users") # Array(User)
+
+user = users.first
+user.to_json # => {"id": 1, "name": "test", "passhash": "abcde"}
+
+created = User.from_json("{\"id\": 2, \"name\": \"test\", \"passhash\": \"fgehik\"}")
+created.id # => 2
+created.name # => "name"
 ```
 
 ## Contributing
