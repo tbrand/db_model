@@ -1,0 +1,13 @@
+name: db_model
+version: 0.1.0
+
+authors:
+  - taicsuzu <taicsuzu@yahoo-corp.jp>
+
+crystal: 0.20.3
+
+license: MIT
+
+dependencies:
+  db:
+    github: crystal-lang/crystal-db
